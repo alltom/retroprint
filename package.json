@@ -1,0 +1,13 @@
+{
+  "name": "retroprint",
+  "version": "0.0.1",
+  "description": "Print values retroactively",
+  "main": "index.js",
+  "author": "Tom Lieber <tom@alltom.com>",
+  "license": "MIT",
+  "dependencies": {
+    "esprima-selector": "0.0.3",
+    "falafel": "^2.0.0",
+    "falafel-helpers": "0.0.3"
+  }
+}
