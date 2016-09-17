@@ -32,11 +32,11 @@ editor.on('cursorActivity', function() {
       .tap(function(entries) {
         var items = outputContainer.selectAll('div').data(
             entries, function(d) { return d.id; });
-        items.enter()
-            .append('div')
-            .append('pre')
-            .classed('value', true)
-            .text(function(d) { return JSON.stringify(d.value, null, '  ') });
+        var div = items.enter().append('div');
+        div.append('span').text(function(d) { return d.name + ' = '; });
+        div.append('pre').classed('value', true).text(function(d) {
+          return JSON.stringify(d.value, null, '  ')
+        });
         items.exit().remove();
       });
 });

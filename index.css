@@ -7,6 +7,7 @@
 pre.value {
 	border: 1px solid black;
 	display: inline-block;
+	margin: 0;
 	padding: 0.5em;
-	vertical-align: top;
+	vertical-align: baseline;
 }
