@@ -6,7 +6,7 @@ var d3 = require('d3');
 require('./index.css');
 var instrument = require('./instrument');
 
-var src = require('raw!./example01.js');
+var src = require('raw!./example02.js');
 
 var editorContainer =
     d3.select(document.body).append('div').classed('editor-container', true);
