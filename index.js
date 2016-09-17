@@ -29,6 +29,13 @@ editor.on('cursorActivity', function() {
       .filter(function(entry) {
         return entry.start <= loc && entry.end >= loc;
       })
+      .groupBy('id')
+      .mapObject(function(vals, id) {
+        return {id: id, vals: vals, exprLength: vals[0].end - vals[0].start};
+      })
+      .sortBy('exprLength')
+      .reduce(
+          function(memo, val) { return memo == null ? val.vals : memo; }, null)
       .tap(function(entries) {
         var items = outputContainer.selectAll('div').data(
             entries, function(d) { return d.id; });
