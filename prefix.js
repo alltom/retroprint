@@ -5,8 +5,10 @@ function SAVE(id, name, start, end, value) {
   return value;
 
   function clone(value) {
-    if (value === null || typeof(o) !== 'object') return value;
-    var copy = (value instanceof Array) ? [] : {};
+    if (value === null || typeof(value) !== 'object') return value;
+    if (value instanceof Array) return value.slice();
+
+    var copy = {};
     // shallow clone
     for (var key in value) {
       copy[key] = value[key];
