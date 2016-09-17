@@ -1,6 +1,6 @@
-var SAVED_VALUES = [];
+window.SAVED_VALUES = [];
 function SAVE(id, name, start, end, value) {
-  SAVED_VALUES.push(
+  window.SAVED_VALUES.push(
       {id: id, name: name, start: start, end: end, value: clone(value)});
   return value;
 

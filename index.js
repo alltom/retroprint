@@ -8,12 +8,20 @@ var instrument = require('./instrument');
 
 var src = require('raw!./example01.js');
 
+var editorContainer =
+    d3.select(document.body).append('div').classed('editor-container', true);
 var editor =
-    CodeMirror(document.body, {value: src, mode: 'javascript', readOnly: true});
+    CodeMirror(editorContainer.node(), {value: src, mode: 'javascript'});
+var compileButton = editorContainer.append('button').text('Run');
 var outputContainer =
     d3.select(document.body).append('pre').classed('output-container', true);
 
 eval(instrument(src));
+
+compileButton.on('click', function() {
+  src = editor.getValue();
+  eval(instrument(src));
+});
 
 editor.on('cursorActivity', function() {
   var loc = editor.indexFromPos(editor.getCursor());
