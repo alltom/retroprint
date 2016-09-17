@@ -3,3 +3,10 @@
 	vertical-align: top;
 	width: 45%;
 }
+
+pre.value {
+	border: 1px solid black;
+	display: inline-block;
+	padding: 0.5em;
+	vertical-align: top;
+}

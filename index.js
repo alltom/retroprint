@@ -2,6 +2,7 @@ var _ = require('underscore');
 var CodeMirror = require('codemirror');
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
+var d3 = require('d3');
 require('./index.css');
 var instrument = require('./instrument');
 
@@ -9,9 +10,8 @@ var src = require('raw!./example01.js');
 
 var editor =
     CodeMirror(document.body, {value: src, mode: 'javascript', readOnly: true});
-var outputContainer = document.createElement('pre');
-outputContainer.className = 'output-container';
-document.body.appendChild(outputContainer);
+var outputContainer =
+    d3.select(document.body).append('pre').classed('output-container', true);
 
 eval(instrument(src));
 
@@ -22,8 +22,13 @@ editor.on('cursorActivity', function() {
         return entry.start <= loc && entry.end >= loc;
       })
       .tap(function(entries) {
-        outputContainer.innerHTML = '';
-        outputContainer.appendChild(
-            document.createTextNode(JSON.stringify(entries, null, '  ')));
+        var items = outputContainer.selectAll('div').data(
+            entries, function(d) { return d.id; });
+        items.enter()
+            .append('div')
+            .append('pre')
+            .classed('value', true)
+            .text(function(d) { return JSON.stringify(d.value, null, '  ') });
+        items.exit().remove();
       });
 });
