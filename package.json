@@ -9,5 +9,10 @@
     "esprima-selector": "0.0.3",
     "falafel": "^2.0.0",
     "falafel-helpers": "0.0.3"
+  },
+  "devDependencies": {
+    "raw-loader": "^0.5.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.2"
   }
 }

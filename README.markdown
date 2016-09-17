@@ -1,10 +1,14 @@
 Usage
 =====
 
-`node index.js example01.js`
+1. `npm start`
+2. `./node_modules/.bin/webpack-dev-server --progress --colors`
+3. Open http://localhost:8080/
 
 
 Developer notes
 ===============
 
-`index.js` reads a JavaScript source file, modifies it to store the values of variables, then prints `prefix.js` + the modified source.
+The entry point is `index.html`, which loads `bundle.js`, which gets compiled from `index.js`.
+
+`instrument.js` accepts raw JavaScript and rewrites it to generate debug information, including prepending `prefix.js`.
