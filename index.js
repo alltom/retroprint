@@ -10,8 +10,9 @@ var src = require('raw!./example01.js');
 
 var editorContainer =
     d3.select(document.body).append('div').classed('editor-container', true);
-var editor =
-    CodeMirror(editorContainer.node(), {value: src, mode: 'javascript'});
+var editor = CodeMirror(
+    editorContainer.node(),
+    {value: src, mode: 'javascript', viewportMargin: Infinity});
 var compileButton = editorContainer.append('button').text('Run');
 var outputContainer =
     d3.select(document.body).append('pre').classed('output-container', true);
