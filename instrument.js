@@ -42,7 +42,7 @@ module.exports = function(src) {
            {
              selector: 'expression',
              callback: function(node) {
-               if (node.parent.type == 'CallExpression') {
+               if (node.parent.type == 'CallExpression' && node.parent.callee === node) {
                  return;
                }
                wrap(node, node, originalSource[makeId(node)], makeId(node));
