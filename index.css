@@ -1,0 +1,5 @@
+.CodeMirror, .output-container {
+	display: inline-block;
+	vertical-align: top;
+	width: 45%;
+}
