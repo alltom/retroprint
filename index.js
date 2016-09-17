@@ -38,6 +38,9 @@ editor.on('cursorActivity', function() {
       .reduce(
           function(memo, val) { return memo == null ? val.vals : memo; }, null)
       .tap(function(entries) {
+        if (!entries) {
+          entries = [];
+        }
         var items = outputContainer.selectAll('div').data(
             entries, function(d) { return d.id; });
         var div = items.enter().append('div');
