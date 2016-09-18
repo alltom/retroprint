@@ -1,7 +1,7 @@
 Usage
 =====
 
-1. `npm start`
+1. `npm install`
 2. `./node_modules/.bin/webpack-dev-server --progress --colors`
 3. Open http://localhost:8080/
 
