@@ -10,10 +10,7 @@ function mergeSort(a) {
   function merge(a, b) {
     var r = [];
     while (a.length > 0 && b.length > 0) {
-      if (a[0] < b[0])
-        r.push(a.shift());
-      else
-        r.push(b.shift());
+      r.push((a[0] < b[0] ? a : b).shift());
     }
     while (a.length > 0) r.push(a.shift());
     while (b.length > 0) r.push(b.shift());
