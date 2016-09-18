@@ -8,7 +8,7 @@
   "dependencies": {
     "codemirror": "^5.18.2",
     "d3": "^4.2.3",
-    "esprima-selector": "0.0.3",
+    "esprima-selector": "0.0.5",
     "falafel": "^2.0.0",
     "falafel-helpers": "0.0.3",
     "underscore": "^1.8.3"
